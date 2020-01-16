@@ -7,9 +7,19 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get",
         "post"
       ]
+    },
+    {
+      "direction": "out",
+      "type": "cosmosDB",
+      "name": "doc",
+      "databaseName": "RatingsDB",
+      "collectionName": "ratings",
+      "leaseCollectionName": "leases",
+      "createLeaseCollectionIfNotExists": true,
+      "connectionStringSetting": "AzureWebJobsCosmosDBConnectionString",
+      "createIfNotExists": true
     },
     {
       "type": "http",
