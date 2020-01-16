@@ -24,7 +24,7 @@ jobs:
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
       with:
-        creds: $AzureSecret
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Setup Python 3.6
       uses: actions/setup-python@v1
