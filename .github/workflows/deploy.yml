@@ -26,10 +26,10 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Setup Python 3.6
+    - name: Setup Python 3.7
       uses: actions/setup-python@v1
       with:
-        python-version: 3.6
+        python-version: 3.7
 
     - name: 'Run pip'
       shell: bash
