@@ -1,0 +1,29 @@
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "docList",
+      "databaseName": "RatingsDB",
+      "collectionName": "ratings",
+      "connectionStringSetting": "AzureWebJobsCosmosDBConnectionString",
+      "direction": "in",
+      "sqlQuery": "SELECT * from c where c.id = {ratingId}"
+    }
+  ]
+}
