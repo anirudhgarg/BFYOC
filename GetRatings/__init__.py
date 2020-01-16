@@ -5,13 +5,14 @@ import azure.functions as func
 
 def main(req: func.HttpRequest, docList: func.DocumentList) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
-
-    ratingId = req.params.get('ratingId')
+    responseJson = []
     if not docList:
         logging.warning('Document list not found.')
         return func.HttpResponse(
-             "Please pass a valid rating Id on the query string or in the request body",
+             "Please pass a valid user Id on the query string or in the request body",
              status_code=400) 
     else:
-        return func.HttpResponse(json.dumps(docList[0].to_json()), status_code=200)
+        for doc in docList:
+            responseJson.append(doc.to_json())
+        return func.HttpResponse(json.dumps(responseJson), status_code=200)
     
