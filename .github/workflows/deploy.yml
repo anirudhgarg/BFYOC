@@ -26,10 +26,10 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Setup Python 3.6
+    - name: Setup Python 3.7
       uses: actions/setup-python@v1
       with:
-        python-version: 3.6
+        python-version: 3.7
 
     - name: 'Run pip'
       shell: bash
@@ -38,7 +38,7 @@ jobs:
         # Please change your directory for pip in pushd
         pushd .
         python -m pip install --upgrade pip
-        pip install -r requirements.txt --target=".python_packages/lib/python3.6/site-packages"
+        pip install -r requirements.txt --target=".python_packages/lib/site-packages"
         popd
 
     - name: 'Run Azure Functions Action'
